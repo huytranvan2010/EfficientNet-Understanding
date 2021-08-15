@@ -74,6 +74,10 @@ Quan sát này có thể được giải thích như sau: nếu độ phân gi�
 
 **Phương pháp mở rộng được đề xuất**
 
+Conv layer i-th có thể được định nghĩa là một hàm $Y_i = F_i(X_i)$, trong đó $F_i$ là toán toán tử, $Y_i$ là tensor đầu ra, $X_i$ là tensor đầu vào với kích thước là $<H_i, W_i, C_i>$, $H_i$, $W_i$ là spatial dimensisons, $C_i$ là số channels. Một ConvNet có thể được định nghĩa bằng danh sách các layer:
+
+$$N = F_k \bigodot F_{k-1} \bigodot ... \bigodot F_1(X_1) = \underset{i=1...k}{\bigodot} F_i(X_1)$$
+
 Mạng CNN có thể được coi như việc chồng các convolutional layers lên nhau. Hơn thế nữa các layers này có thể phân chia vào các **stages** (tầng) khác nhau, ResNet có 5 stages và tất cả các layers trong mỗi stage có chung convolutional type. Do đó mạng CNN có thể được biểu diễn dưới dạng toán học như sau:
 
 $$N = \underset{i=1...s}{\bigodot} F_i^{L_i}(X_{<H_i, W_i, C_i>}) ~~~~~~~~ (1)$$
@@ -119,3 +123,4 @@ Phương pháp mở rộng này có thể được sử dụng với các kiến
 1. https://towardsdatascience.com/efficientnet-scaling-of-convolutional-neural-networks-done-right-3fde32aef8ff
 2. https://medium.com/@nainaakash012/efficientnet-rethinking-model-scaling-for-convolutional-neural-networks-92941c5bfb95
 3. https://arxiv.org/abs/1905.11946
+4. https://viblo.asia/p/efficientnet-cach-tiep-can-moi-ve-model-scaling-cho-convolutional-neural-networks-Qbq5QQzm5D8
